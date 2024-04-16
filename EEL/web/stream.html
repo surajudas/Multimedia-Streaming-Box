@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stream Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<style>
+    .gradient-top, .gradient-bottom {
+        position: fixed;
+        width: 100%;
+        height: 20vh;
+        background: linear-gradient(45deg, #a6defe, #f9fbca),
+                    linear-gradient(45deg, #89f7fe, #73acfd);
+        background-size: 400% 400%;
+        animation: gradient1 15s ease infinite, gradient2 15s ease infinite;
+    }
+
+    .gradient-top {
+        top: 0;
+    }
+
+    .gradient-bottom {
+        bottom: 0;
+    }
+
+    @keyframes gradient1 {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    @keyframes gradient2 {
+        0% { background-position: 100% 50%; }
+        50% { background-position: 0% 50%; }
+        100% { background-position: 100% 50%; }
+    }
+    
+    @keyframes wiggle {
+        0% { transform: translateY(0px); }
+        25% { transform: translateY(-2px); }
+        50% { transform: translateY(0px); }
+        75% { transform: translateY(2px); }
+        100% { transform: translateY(0px); }
+    }
+
+    button:focus {
+        outline: none;
+        box-shadow: 0 0 5px #719ECE;
+        animation: wiggle 0.5s ease-in-out infinite;
+    }
+
+    body {
+        font-family: 'Nunito Sans', sans-serif;
+    }
+</style>
+<body class="bg-white flex flex-col items-center justify-center h-screen">
+    <div class="gradient-top"></div>
+    <h1 class="text-4xl mb-8">Welcome to the Stream Page</h1>
+    
+    <div class="grid grid-cols-3 grid-rows-2 gap-4">
+        <button class="bg-red-500 text-white rounded-lg p-4 text-center flex items-center justify-center" onclick="window.open('https://www.youtube.com', '_blank')">
+            <i class="fab fa-youtube mr-2"></i>
+            YouTube
+        </button>
+        <button class="bg-blue-500 text-white rounded-lg p-4 text-center flex items-center justify-center" onclick="window.open('https://www.netflix.com', '_blank')">
+            <i class="fas fa-mug-hot mr-2"></i>
+            Netflix
+        </button>
+        <button class="bg-green-500 text-white rounded-lg p-4 text-center flex items-center justify-center" onclick="window.open('https://publicdomainmovie.net/', '_blank')">
+            <i class="fas fa-film mr-2"></i>
+            Public Domain Movies
+        </button>
+        <button class="bg-yellow-500 text-white rounded-lg p-4 text-center flex items-center justify-center" onclick="window.open('https://watchdocumentaries.com/', '_blank')">
+            <i class="fas fa-video mr-2"></i>
+            Documentaries
+        </button>
+        <button class="bg-purple-500 text-white rounded-lg p-4 text-center flex items-center justify-center" onclick="window.open('https://www.dailymotion.com/', '_blank')">
+            <i class="fab fa-viadeo mr-2"></i>
+            Dailymotion
+        </button>
+        <button class="bg-pink-500 text-white rounded-lg p-4 text-center flex items-center justify-center" onclick="window.open('https://www.twitch.tv/', '_blank')">
+            <i class="fab fa-twitch mr-2"></i>
+            Twitch 
+        </button>    
+    </div>
+    <div class="gradient-bottom"></div>
+
+    <script src="/eel.js"></script>
+    <script src="script.js"></script>
+</body> 
+</html>

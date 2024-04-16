@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <title>Pi Streamer</title>
+</head>
+<style>
+    @keyframes wiggle {
+        0% { transform: translateY(0px); }
+        25% { transform: translateY(-2px); }
+        50% { transform: translateY(0px); }
+        75% { transform: translateY(2px); }
+        100% { transform: translateY(0px); }
+    }
+
+    button:focus {
+        outline: none;
+        box-shadow: 0 0 5px #719ECE;
+        animation: wiggle 0.5s ease-in-out infinite;
+    }
+
+    .css2 {
+        width: 200px;
+        height: 200px;
+        position: relative;
+    }
+
+    @keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-100px);
+    }
+}
+    .ball-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    }
+
+    .cssBall {
+    position: absolute;
+    top: 140px;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 50px;
+    height: 50px;
+    transition: 0.5s;
+    animation: bounce 2s infinite;
+    }
+
+    body {
+        font-family: 'Nunito Sans', sans-serif;
+    }
+
+    #timeDate {
+            font-family: 'Roboto Mono', monospace;
+        }
+
+</style>
+<body class="bg-white flex flex-col items-center justify-center h-screen">
+    <div class="row-start-1 row-end-2"></div>
+        <h1 class="text-4xl mb-8">PiStreamer</h1>
+        <div id="timeDate"></div>
+    <div class="row-start-2 row-end-3 h-4/6 flex justify-center items-center">
+        <div class="w-full grid grid-cols-4 grid-rows-2 gap-x-20 gap-y-8">
+            <div class="ball-container">
+                <div class="css2">
+                  <img class="cssBall" src="https://cdn-icons-png.flaticon.com/512/587/587393.png" alt="">
+                </div>
+            </div>
+            <button class="bg-[#34D399] hover:bg-[#059669] text-white font-bold py-3 px-5 rounded" onclick="window.open('stream.html', '_blank')">
+                <i class="fas fa-video"></i> Stream
+            </button>
+            <button class="bg-[#F87171] hover:bg-[#EF4444] text-white font-bold py-3 px-5 rounded" onclick="runCommand(1)">
+                <i class="fas fa-file"></i> Local File
+            </button>
+            <button class="bg-[#FBBF24] hover:bg-[#F59E0B] text-white font-bold py-3 px-5 rounded" onclick="runCommand(2)">
+                <i class="fas fa-gamepad"></i> Games
+            </button>
+            <button class="bg-[#60A5FA] hover:bg-[#3B82F6] text-white font-bold py-3 px-5 rounded" onclick="runCommand(3)">
+                <i class="fas fa-tv"></i> IPTV
+            </button>
+            <button class="bg-[#818CF8] hover:bg-[#6366F1] text-white font-bold py-3 px-5 rounded" onclick="runCommand(4)">
+                <i class="fas fa-desktop"></i> Screen Mirroring
+            </button>
+            <button class="bg-[#A78BFA] hover:bg-[#8B5CF6] text-white font-bold py-3 px-5 rounded" onclick="runCommand(5)">
+                <i class="fas fa-chart-line"></i> Stocks
+            </button>
+            
+            <div id="system-info" class="bg-[#E0F2FE] hover:bg-[#BFDBFE] text-black font-bold py-3 px-5 rounded">
+                <h2>System Information</h2>
+                <p id="platform" class="text-m text-gray-600"></p>
+                <p id="release" class="text-m text-gray-600"></p>
+                <p id="machine" class="text-m text-gray-600"></p>
+                <p id="total-ram" class="text-m text-gray-600"></p>
+                <p id="used-ram" class="text-m text-gray-600"></p>
+                <p id="ram-percentage" class="text-m text-gray-600"></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row-start-3 row-end-4 w-full h-1/6 flex items-center justify-center">
+        <p class="text-sm text-gray-600">
+            <i class="fas fa-code"></i> by Suraj, Shreyas, Vignesh, Vrushab For MP (Ty Entc) 2024
+        </p>
+        <div class="flex items-center space-x-4 absolute right-0 mr-12">
+            <img src="https://www.svgrepo.com/show/396209/joystick.svg" alt="joystick" class="h-16 w-16">
+            <p class="text-sm text-gray-600">Use joystick to control the menu</p>
+        </div>
+    </div>
+
+    <script src="/eel.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
